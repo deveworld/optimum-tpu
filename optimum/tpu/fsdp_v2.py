@@ -92,7 +92,7 @@ def get_fsdp_training_args(model: PreTrainedModel) -> Dict:
         if isinstance(model, GemmaForCausalLM) or isinstance(model, HFGemmaForCausalLLM):
             cls_to_wrap = "GemmaDecoderLayer"
             matched_model = True
-    elif model_type == "gemma3":
+    elif model_type  in  ["gemma3", "gemma3_text"]:
         from transformers import Gemma3ForCausalLM as HFGemma3ForCausalLM
 
         if isinstance(model, HFGemma3ForCausalLM):
